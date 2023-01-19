@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: GOV.UK Notify
- * Version: 1.0.0
+ * Version: 1.0.1
  * Description: A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service
  *
  */
