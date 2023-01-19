@@ -1,0 +1,21 @@
+{
+  "name": "ministryofjustice/wp-gov-uk-notify",
+  "description": "A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service" ,
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "^1.0",
+    "php-http/guzzle7-adapter": "*",
+    "alphagov/notifications-php-client": "*"
+  },
+  "authors": [
+      {
+          "name": "Robert Lowe",
+          "email": "wordpress@digital.justice.gov.uk"
+      }
+  ],
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}

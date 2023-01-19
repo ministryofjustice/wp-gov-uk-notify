@@ -1,0 +1,39 @@
+{
+  "name": "alphagov/notifications-php-client",
+  "description": "PHP client for GOV.UK Notifications",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "GOV UK Notify",
+      "email": "notify@digital-cabinet-office.gov.uk"
+    },
+    {
+      "name": "Neil Smith",
+      "email": "neil@nsmith.net"
+    }
+  ],
+  "require": {
+    "php": "^7.2|^8.0",
+    "firebase/php-jwt": "^v6.1.0",
+    "guzzlehttp/psr7": "^2.1.1"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.0|^7.2",
+    "php-http/message": "^1.1",
+    "php-http/mock-client": "*",
+    "php-http/socket-client": "^2.1.0",
+    "php-http/guzzle7-adapter": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alphagov\\Notifications\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Alphagov\\NotificationsTests\\": "tests/"
+    }
+  }
+}
