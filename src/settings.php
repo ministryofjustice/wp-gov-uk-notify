@@ -27,17 +27,19 @@ function gov_uk_notify_settings_init()
     add_settings_field(
         'gov_uk_notify_api_key',
         __('API Key', 'wordpress'),
-        'gov_uk_notify_api_key_field_render',
+        'gov_uk_notify_input_field_render',
         'gov_uk_notify_plugin',
-        'gov_uk_notify_settings_section'
+        'gov_uk_notify_settings_section',
+        array( 'field_id'=> 'gov_uk_notify_api_key')
     );
 
     add_settings_field(
         'gov_uk_notify_template_id',
         __('Template ID', 'wordpress'),
-        'gov_uk_notify_template_id_field_render',
+        'gov_uk_notify_input_field_render',
         'gov_uk_notify_plugin',
-        'gov_uk_notify_settings_section'
+        'gov_uk_notify_settings_section',
+        array( 'field_id'=> 'gov_uk_notify_template_id')
     );
 
 }
@@ -48,31 +50,19 @@ function gov_uk_notify_section_intro()
     echo __('Please enter a API Key and  a Template ID as both are required to use the GOV.UK Notify Service', 'wordpress');
 }
 
-function gov_uk_notify_api_key_field_render()
+function gov_uk_notify_input_field_render($args)
 {
-    $options = get_option('gov_uk_notify_settings');
-    $api_key = '';
-    if(!empty($options) && array_key_exists('gov_uk_notify_api_key', $options)){
-        $api_key = $options['gov_uk_notify_api_key'];
+    if(!empty($args) && array_key_exists('field_id', $args)) {
+        $options = get_option('gov_uk_notify_settings');
+        $api_key = '';
+        if (!empty($options) && array_key_exists($args['field_id'], $options)) {
+            $api_key = $options[$args['field_id']];
+        }
+        ?>
+        <input type="text" value="<?= $api_key ?>" name='gov_uk_notify_settings[<?= $args['field_id'] ?>]'>
+        <?php
     }
-    ?>
-    <input type="text" value="<?= $api_key ?>"  name='gov_uk_notify_settings[gov_uk_notify_api_key]'>
-    <?php
 }
-
-function gov_uk_notify_template_id_field_render()
-{
-    $options = get_option('gov_uk_notify_settings');
-    $template_id = '';
-    if(!empty($options) && array_key_exists('gov_uk_notify_template_id', $options)){
-
-       $template_id = $options['gov_uk_notify_template_id'];
-    }
-    ?>
-    <input type="text" value="<?= $template_id ?>"  name='gov_uk_notify_settings[gov_uk_notify_template_id]'>
-    <?php
-}
-
 
 function gov_uk_notify_plugin_settings()
 {
