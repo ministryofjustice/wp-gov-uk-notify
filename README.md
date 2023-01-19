@@ -1,4 +1,4 @@
-# Gov Notify
+# GOV.UK Notify Wordpress Plugin
 
 A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service. 
 

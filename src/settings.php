@@ -47,7 +47,7 @@ function gov_uk_notify_settings_init()
 function gov_uk_notify_section_intro()
 {
 
-    echo __('Please enter a API Key and  a Template ID as both are required to use the GOV.UK Notify Service', 'wordpress');
+    echo __('Please enter a API Key and a Template ID as both are required to use the GOV.UK Notify Service', 'wordpress');
 }
 
 function gov_uk_notify_input_field_render($args)
