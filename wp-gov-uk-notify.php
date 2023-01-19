@@ -8,6 +8,8 @@
 
 include 'src/settings.php';
 
+include 'vendor/autoload.php';
+
 // Send emails via Gov Notify Service if gov_uk_notify_api_key and gov_uk_notify_template_id are set
 // https://kevdees.com/how-to-replace-wp-mail-function-in-wordpress/#:~:text=To%20replace%20the%20wp_mail(),function%20instead%20of%20its%20own.
 add_filter( 'pre_wp_mail', function($null, $atts) {
