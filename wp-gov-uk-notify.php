@@ -1,10 +1,16 @@
 <?php
 /**
  * Plugin name: GOV.UK Notify
- * Version: 1.0.1
+ * @link https://github.com/ministryofjustice/wp-gov-uk-notify
+ * Version: 1.0.2
  * Description: A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service
  *
  */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 include 'src/settings.php';
 
