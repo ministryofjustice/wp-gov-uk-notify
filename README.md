@@ -4,7 +4,7 @@ A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notif
 
 ## Required
 
-* (Gov Notify)[https://www.notifications.service.gov.uk/] account
+* (Gov Notify)[https://www.notifications.service.gov.uk/] account.
 
 ### Installation
 This plugin is suitable for loading from the mu-plugins directory.
