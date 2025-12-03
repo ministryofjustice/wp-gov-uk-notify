@@ -3,7 +3,7 @@
   "description": "A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service" ,
   "type": "wordpress-plugin",
   "require": {
-    "composer/installers": "^1.0",
+    "composer/installers": "^2.0",
     "php-http/guzzle7-adapter": "*",
     "alphagov/notifications-php-client": "*"
   },
