@@ -3,7 +3,7 @@
         'name' => 'ministryofjustice/wp-gov-uk-notify',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b5571162667f9ddff07e00d95220d29ea319316f',
+        'reference' => '48aaefcb172cda6f3058292d7daf49928b5aa607',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -58,7 +58,7 @@
         'ministryofjustice/wp-gov-uk-notify' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b5571162667f9ddff07e00d95220d29ea319316f',
+            'reference' => '48aaefcb172cda6f3058292d7daf49928b5aa607',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
