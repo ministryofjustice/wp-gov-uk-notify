@@ -1,0 +1,13 @@
+composer.phar
+composer.lock
+vendor
+tests/local
+
+.DS_Store
+.idea
+.vscode
+
+docker.env
+environment.sh
+environment_test.sh
+.envrc
