@@ -2,7 +2,7 @@
 /**
  * Plugin name: GOV.UK Notify
  * @link https://github.com/ministryofjustice/wp-gov-uk-notify
- * Version: 1.0.2
+ * Version: 1.0.4
  * Description: A WordPress plugin that configures Wordpress to send emails via the GOV.UK Notify Service
  *
  */
