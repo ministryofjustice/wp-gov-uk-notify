@@ -25,7 +25,7 @@ class Client {
      * @const string Current version of this client.
      * This follows Semantic Versioning (http://semver.org/)
      */
-    const VERSION = '5.0.0';
+    const VERSION = '7.0.0';
 
     /**
      * @const string The API endpoint for Notify production.
@@ -187,14 +187,15 @@ class Client {
      * @param string    $templateId
      * @param array     $personalisation
      * @param string    $reference
+     * @param string    $oneClickUnsubscribeURL
      *
      * @return array
      */
-    public function sendEmail( $emailAddress, $templateId, array $personalisation = array(), $reference = '', $emailReplyToId = NULL ){
+    public function sendEmail( $emailAddress, $templateId, array $personalisation = array(), $reference = '', $emailReplyToId = NULL, $oneClickUnsubscribeURL = NULL ){
 
         return $this->httpPost(
             self::PATH_NOTIFICATION_SEND_EMAIL,
-            $this->buildEmailPayload( 'email', $emailAddress, $templateId, $personalisation, $reference, $emailReplyToId )
+            $this->buildEmailPayload( 'email', $emailAddress, $templateId, $personalisation, $reference, $emailReplyToId, $oneClickUnsubscribeURL )
         );
 
     }
@@ -392,21 +393,21 @@ class Client {
      * Prepare a file before adding it to the $personalisation array for the sendEmail function
      *
      * @param string $file_contents
-     * @param bool $is_csv
+     * @param string $filename
      * @param bool $confirm_email_before_download
      * @param string $retention_period
      *
      * @return array
      */
-    public function prepareUpload( $file_contents, $is_csv = false, $confirm_email_before_download = NULL, $retention_period = NULL ){
+    public function prepareUpload( $file_contents, $filename = NULL, $confirm_email_before_download = NULL, $retention_period = NULL ){
         if ( strlen($file_contents) > ( 2 * 1024 * 1024 )) {
             throw new Exception\InvalidArgumentException( 'File is larger than 2MB.' );
         }
         $data = [
             "file" => base64_encode($file_contents),
-            "is_csv" => $is_csv
         ];
 
+        $data['filename'] = $filename;
         $data['confirm_email_before_download'] = $confirm_email_before_download;
         $data['retention_period'] = $retention_period;
 
@@ -464,15 +465,20 @@ class Client {
      * @param array     $personalisation
      * @param string    $reference
      * @param string    $emailReplyToId
+     * @param string    $oneClickUnsubscribeURL
      *
      * @return array
      */
-    private function buildEmailPayload( $type, $to, $templateId, array $personalisation, $reference, $emailReplyToId = NULL ) {
+    private function buildEmailPayload( $type, $to, $templateId, array $personalisation, $reference, $emailReplyToId = NULL, $oneClickUnsubscribeURL = NULL ) {
 
         $payload = $this->buildPayload( $type, $to, $templateId, $personalisation, $reference );
 
         if ( isset($emailReplyToId) && $emailReplyToId != '' ) {
             $payload['email_reply_to_id'] = $emailReplyToId;
+        }
+
+        if ( isset($oneClickUnsubscribeURL) && $oneClickUnsubscribeURL != '' ) {
+            $payload['one_click_unsubscribe_url'] = $oneClickUnsubscribeURL;
         }
 
         return $payload;

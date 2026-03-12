@@ -6,7 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src', $vendorDir . '/psr/http-factory/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Client\\' => array($vendorDir . '/php-http/httplug/src'),
@@ -15,6 +15,5 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
-    'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     'Alphagov\\Notifications\\' => array($vendorDir . '/alphagov/notifications-php-client/src'),
 );
